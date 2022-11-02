@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.views.MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_emovie" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:text="@string/upcoming_movies"
+                style="@style/title_style" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upcoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:itemCount="1"
+                tools:listitem="@layout/node_movie"
+                android:layout_marginVertical="@dimen/_10sdp"
+                />
+
+            <TextView
+                android:text="@string/top_rated"
+                style="@style/title_style" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/top_rated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:itemCount="1"
+                tools:listitem="@layout/node_movie"
+                android:layout_marginVertical="@dimen/_10sdp"
+
+                />
+
+            <TextView
+                android:text="@string/recommended"
+                style="@style/title_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/horizontal_margin">
+
+                <Button
+                    android:id="@+id/language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/in_english"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:textColor="@color/button_active_text_state"
+                    android:background="@drawable/button_active_state"
+                    />
+
+                <Button
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    android:padding="@dimen/_8sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_inactive_text_state"
+                    android:background="@drawable/button_inactive_state"
+                    />
+
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/movies_grid"
+                android:layout_marginHorizontal="@dimen/horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="2"
+                tools:listitem="@layout/node_recommended_movie"
+                />
+            
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

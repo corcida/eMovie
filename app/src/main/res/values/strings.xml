@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">eMovie</string>
+    <string name="upcoming_movies">Próximos estrenos</string>
+    <string name="top_rated">Tendencia</string>
+    <string name="recommended">Recomendados para ti</string>
+    <string name="in_english">En inglés</string>
+    <string name="date">Lanzados en 1983</string>
+</resources>
