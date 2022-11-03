@@ -6,6 +6,8 @@ import com.rappi.emovie.data.network.TopRatedMovieRemoteDataSource
 import com.rappi.emovie.data.network.UpcomingMovieRemoteDataSource
 import com.rappi.emovie.data.repository.TopRatedMovieRepository
 import com.rappi.emovie.data.repository.UpcomingMovieRepository
+import com.rappi.emovie.domain.uc.GetDateFilteredMoviesUseCase
+import com.rappi.emovie.domain.uc.GetEnglishMoviesUseCase
 import com.rappi.emovie.domain.uc.GetTopRatedMoviesUseCase
 import com.rappi.emovie.domain.uc.GetUpcomingMoviesUseCase
 import dagger.Module
@@ -34,5 +36,13 @@ object AppModule {
     @Provides
     fun provideGetUpcomingMovieUseCase(repository: UpcomingMovieRepository
     ): GetUpcomingMoviesUseCase = GetUpcomingMoviesUseCase(repository)
+
+    @Provides
+    fun provideGetEnglishMovieUseCase(repository: TopRatedMovieRepository
+    ): GetEnglishMoviesUseCase = GetEnglishMoviesUseCase(repository)
+
+    @Provides
+    fun provideGetDateFilteredMovieUseCase(repository: TopRatedMovieRepository
+    ): GetDateFilteredMoviesUseCase = GetDateFilteredMoviesUseCase(repository)
 
 }

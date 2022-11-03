@@ -14,10 +14,11 @@ data class UpcomingMovie(
     val title: String,
     val overview: String,
     val original_language: String,
+    val release_date: String,
     val genre_ids: List<Int>,
     val poster_path: String,
     val vote_average: Float
     )
 
 fun Movie.toUpcomingDatabase() = UpcomingMovie(id, title, overview,
-    original_language, genre_ids, poster_path, vote_average)
+    original_language, release_date, genre_ids, poster_path, vote_average)

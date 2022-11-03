@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rappi.emovie.domain.model.Movie
+import com.rappi.emovie.domain.uc.GetDateFilteredMoviesUseCase
+import com.rappi.emovie.domain.uc.GetEnglishMoviesUseCase
 import com.rappi.emovie.domain.uc.GetTopRatedMoviesUseCase
 import com.rappi.emovie.domain.uc.GetUpcomingMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase,
-    private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCase
+    private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCase,
+    private val getEnglishMoviesUseCase: GetEnglishMoviesUseCase,
+    private val getDateFilteredMoviesUseCase: GetDateFilteredMoviesUseCase
 ): ViewModel() {
 
     private val _model = MutableLiveData<UiModel>()
@@ -46,9 +50,8 @@ class MainViewModel @Inject constructor(
         val result = getTopRatedMoviesUseCase()
         withContext(Dispatchers.Main) {
             if (!result.isNullOrEmpty()) {
-                _model.value = UiModel.RecommendedData(
-                    result.filter { it.original_language == "en" }.take(6))
                 _model.value = UiModel.TopRatedData(result)
+                getEnglishMovies()
             } else {
                 _model.value = UiModel.Error("You currently have no data")
             }
@@ -66,15 +69,21 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    fun getEnglishMovies() = viewModelScope.launch(Dispatchers.IO){
+        val result = getEnglishMoviesUseCase()
+        withContext(Dispatchers.Main){
+            _model.value = UiModel.RecommendedData(result)
+        }
+    }
+
+    fun getMoviesByDate() = viewModelScope.launch(Dispatchers.IO){
+        val result = getDateFilteredMoviesUseCase()
+        withContext(Dispatchers.Main){
+            _model.value = UiModel.RecommendedData(result)
+        }
+    }
+
     fun onMovieItemSelected(movie: Movie){
-
-    }
-
-    fun getEnglishMovies(){
-
-    }
-
-    fun getMoviesByDate(){
 
     }
 
