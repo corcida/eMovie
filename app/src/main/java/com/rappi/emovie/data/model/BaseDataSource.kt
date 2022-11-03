@@ -1,6 +1,6 @@
-package com.rappi.emovie.data.remote
+package com.rappi.emovie.data.model
 
-import com.rappi.emovie.data.entities.Resource
+import com.rappi.emovie.domain.model.Resource
 import retrofit2.Response
 
 abstract class BaseDataSource {

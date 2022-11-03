@@ -1,4 +1,4 @@
-package com.rappi.emovie.data.entities
+package com.rappi.emovie.domain.model
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 
