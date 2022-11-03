@@ -8,9 +8,9 @@ import com.rappi.emovie.domain.model.Movie
 
 @Entity(tableName = "top_rated")
 @TypeConverters(IntListConverter::class)
-data class TopRatedMovie(
+data class TopRatedMovieEntity(
     @PrimaryKey
-    val id: String,
+    val id: Int,
     val title: String,
     val overview: String,
     val original_language: String,
@@ -20,7 +20,7 @@ data class TopRatedMovie(
     val vote_average: Float
     )
 
-fun Movie.toDatabase() = TopRatedMovie(id, title, overview,
+fun Movie.toDatabase() = TopRatedMovieEntity(id, title, overview,
     original_language, release_date, genre_ids, poster_path,  vote_average)
 
 

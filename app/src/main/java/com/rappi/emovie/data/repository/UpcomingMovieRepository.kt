@@ -1,7 +1,7 @@
 package com.rappi.emovie.data.repository
 
 import com.rappi.emovie.data.database.dao.UpcomingMovieDao
-import com.rappi.emovie.data.database.entities.UpcomingMovie
+import com.rappi.emovie.data.database.entities.UpcomingMovieEntity
 import com.rappi.emovie.data.network.UpcomingMovieRemoteDataSource
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.domain.model.toDomain
@@ -18,11 +18,11 @@ class UpcomingMovieRepository @Inject constructor(
     }
 
     suspend fun getUpcomingMoviesFromDatabase():List<Movie>{
-        val response: List<UpcomingMovie> = localDataSource.getUpcomingMovies()
+        val response: List<UpcomingMovieEntity> = localDataSource.getUpcomingMovies()
         return response.map { it.toDomain() }
     }
 
-    suspend fun insertMovies(movies:List<UpcomingMovie>){
+    suspend fun insertMovies(movies:List<UpcomingMovieEntity>){
         localDataSource.insertAll(movies)
     }
 

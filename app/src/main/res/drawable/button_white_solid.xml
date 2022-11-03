@@ -5,9 +5,9 @@
     <solid android:color="@color/white"/>
 
     <corners
-        android:bottomRightRadius="@dimen/_25sdp"
-        android:bottomLeftRadius="@dimen/_25sdp"
-        android:topLeftRadius="@dimen/_25sdp"
-        android:topRightRadius="@dimen/_25sdp"/>
+        android:bottomRightRadius="@dimen/detail_button_corner_radius"
+        android:bottomLeftRadius="@dimen/detail_button_corner_radius"
+        android:topLeftRadius="@dimen/detail_button_corner_radius"
+        android:topRightRadius="@dimen/detail_button_corner_radius"/>
 
 </shape>

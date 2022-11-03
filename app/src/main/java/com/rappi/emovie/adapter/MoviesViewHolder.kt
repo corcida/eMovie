@@ -18,7 +18,7 @@ class MoviesViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val binding = NodeMovieBinding.bind(view)
 
     fun render(movie: Movie, onClickListener : (Movie) -> Unit) {
-        if  (movie.id != "loading"){
+        if  (movie.id != Constants.loading){
             val url = Constants.imageUrl + movie.poster_path
             Glide.with(binding.photo.context).load(url).into(binding.photo)
             binding.shimmerViewContainer.stopShimmer()

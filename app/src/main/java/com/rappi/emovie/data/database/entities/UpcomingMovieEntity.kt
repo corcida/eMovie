@@ -8,9 +8,9 @@ import com.rappi.emovie.domain.model.Movie
 
 @Entity(tableName = "upcoming")
 @TypeConverters(IntListConverter::class)
-data class UpcomingMovie(
+data class UpcomingMovieEntity(
     @PrimaryKey
-    val id: String,
+    val id: Int,
     val title: String,
     val overview: String,
     val original_language: String,
@@ -20,5 +20,5 @@ data class UpcomingMovie(
     val vote_average: Float
     )
 
-fun Movie.toUpcomingDatabase() = UpcomingMovie(id, title, overview,
+fun Movie.toUpcomingDatabase() = UpcomingMovieEntity(id, title, overview,
     original_language, release_date, genre_ids, poster_path, vote_average)

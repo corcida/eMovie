@@ -36,7 +36,7 @@
 
             <TextView
                 android:text="@string/upcoming_movies"
-                style="@style/title_style" />
+                style="@style/titleStyle" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upcoming"
@@ -50,7 +50,7 @@
 
             <TextView
                 android:text="@string/top_rated"
-                style="@style/title_style" />
+                style="@style/titleStyle" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_rated"
@@ -65,7 +65,7 @@
 
             <TextView
                 android:text="@string/recommended"
-                style="@style/title_style" />
+                style="@style/titleStyle" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,8 +93,7 @@
                     android:padding="@dimen/_8sdp"
                     android:textAllCaps="false"
                     android:textColor="@color/button_inactive_text_state"
-                    android:background="@drawable/button_inactive_state"
-                    />
+                    android:background="@drawable/button_inactive_state" />
 
             </LinearLayout>
 

@@ -1,5 +1,5 @@
 package com.rappi.emovie.data.model
 
-import com.rappi.emovie.data.database.entities.UpcomingMovie
+import com.rappi.emovie.data.database.entities.UpcomingMovieEntity
 
-data class UpcomingMovieData(val results: List<UpcomingMovie>)
+data class UpcomingMovieData(val results: List<UpcomingMovieEntity>)

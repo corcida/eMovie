@@ -1,7 +1,7 @@
 package com.rappi.emovie.data.repository
 
 import com.rappi.emovie.data.database.dao.TopRatedMovieDao
-import com.rappi.emovie.data.database.entities.TopRatedMovie
+import com.rappi.emovie.data.database.entities.TopRatedMovieEntity
 import com.rappi.emovie.data.network.TopRatedMovieRemoteDataSource
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.domain.model.toDomain
@@ -18,11 +18,11 @@ class TopRatedMovieRepository @Inject constructor(
     }
 
     suspend fun getTopRatedMoviesFromDatabase():List<Movie>{
-        val response: List<TopRatedMovie> = localDataSource.getTopRatedMovies()
+        val response: List<TopRatedMovieEntity> = localDataSource.getTopRatedMovies()
         return response.map { it.toDomain() }
     }
 
-    suspend fun insertMovies(movies:List<TopRatedMovie>){
+    suspend fun insertMovies(movies:List<TopRatedMovieEntity>){
         localDataSource.insertAll(movies)
     }
 

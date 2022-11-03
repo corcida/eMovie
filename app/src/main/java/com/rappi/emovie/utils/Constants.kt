@@ -7,4 +7,6 @@ object Constants {
     const val token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTcyNjJmYTI2NWQ0M2YxODk5MGE0" +
             "ODRlZWI1YjYzOSIsInN1YiI6IjYzNjE3NGIyNDIwMjI4MDA4MTY0ZjNhMyIsInNjb3BlcyI6W" +
             "yJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oSx0IITa_huAm7uiwFCa__SV9gV9iMnqUq3OCbH2UTo"
+
+    const val loading = 1
 }

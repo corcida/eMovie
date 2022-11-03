@@ -1,15 +1,15 @@
 package com.rappi.emovie.di
 
+import com.rappi.emovie.data.database.dao.GenreDao
 import com.rappi.emovie.data.database.dao.TopRatedMovieDao
 import com.rappi.emovie.data.database.dao.UpcomingMovieDao
+import com.rappi.emovie.data.network.GenreRemoteDataSource
 import com.rappi.emovie.data.network.TopRatedMovieRemoteDataSource
 import com.rappi.emovie.data.network.UpcomingMovieRemoteDataSource
+import com.rappi.emovie.data.repository.GenreRepository
 import com.rappi.emovie.data.repository.TopRatedMovieRepository
 import com.rappi.emovie.data.repository.UpcomingMovieRepository
-import com.rappi.emovie.domain.uc.GetDateFilteredMoviesUseCase
-import com.rappi.emovie.domain.uc.GetEnglishMoviesUseCase
-import com.rappi.emovie.domain.uc.GetTopRatedMoviesUseCase
-import com.rappi.emovie.domain.uc.GetUpcomingMoviesUseCase
+import com.rappi.emovie.domain.uc.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,13 +25,18 @@ object AppModule {
     ): TopRatedMovieRepository = TopRatedMovieRepository(remoteDataSource, localDataSource)
 
     @Provides
-    fun provideGetTopRatedMovieUseCase(repository: TopRatedMovieRepository
-    ): GetTopRatedMoviesUseCase = GetTopRatedMoviesUseCase(repository)
-
-    @Provides
     fun provideUpcomingMovieRepository(remoteDataSource: UpcomingMovieRemoteDataSource,
                                        localDataSource: UpcomingMovieDao
     ): UpcomingMovieRepository = UpcomingMovieRepository(remoteDataSource, localDataSource)
+
+    @Provides
+    fun provideGenreRepository(remoteDataSource: GenreRemoteDataSource,
+                                       localDataSource: GenreDao):
+            GenreRepository = GenreRepository(remoteDataSource, localDataSource)
+
+    @Provides
+    fun provideGetTopRatedMovieUseCase(repository: TopRatedMovieRepository
+    ): GetTopRatedMoviesUseCase = GetTopRatedMoviesUseCase(repository)
 
     @Provides
     fun provideGetUpcomingMovieUseCase(repository: UpcomingMovieRepository
@@ -44,5 +49,9 @@ object AppModule {
     @Provides
     fun provideGetDateFilteredMovieUseCase(repository: TopRatedMovieRepository
     ): GetDateFilteredMoviesUseCase = GetDateFilteredMoviesUseCase(repository)
+
+    @Provides
+    fun provideGenreUseCase(repository: GenreRepository
+    ): GetGenresUseCase = GetGenresUseCase(repository)
 
 }

@@ -5,4 +5,7 @@
     <string name="recommended">Recomendados para ti</string>
     <string name="in_english">En inglés</string>
     <string name="date">Lanzados en 2020</string>
+    <string name="watch_trailer">Ver trailer</string>
+    <string name="movie_plot">Movie plot</string>
+    <string name="movie_plot_example">In a near future, a lonely writer develops an unlikely relationship with an operating system designed to meet his every need.</string>
 </resources>

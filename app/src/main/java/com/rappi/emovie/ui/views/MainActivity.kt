@@ -76,12 +76,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun viewModelObserver(model : UiModel){
         when (model) {
-            is UiModel.Error -> {
-                Toast.makeText(this, model.value, Toast.LENGTH_SHORT).show()
-            }
+            is UiModel.Error -> Toast.makeText(this, model.value, Toast.LENGTH_SHORT).show()
             is UiModel.RecommendedData -> recommendedAdapter.movies = model.data
             is UiModel.TopRatedData -> topRatedAdapter.movies = model.data
-
             is UiModel.UpcomingData -> upcomingAdapter.movies = model.data
         }
     }

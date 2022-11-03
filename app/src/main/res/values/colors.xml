@@ -6,7 +6,11 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="gradient_black">#1E1E1E</color>
     <color name="burgundy">#800606</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="second_white">#ccffffff</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="yellow">#F6C700</color>
     <color name="gray">#939396</color>
 </resources>

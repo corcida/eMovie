@@ -9,6 +9,7 @@ import com.rappi.emovie.domain.uc.GetDateFilteredMoviesUseCase
 import com.rappi.emovie.domain.uc.GetEnglishMoviesUseCase
 import com.rappi.emovie.domain.uc.GetTopRatedMoviesUseCase
 import com.rappi.emovie.domain.uc.GetUpcomingMoviesUseCase
+import com.rappi.emovie.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,7 +41,8 @@ class MainViewModel @Inject constructor(
     }
 
     private fun setLoadingData()= viewModelScope.launch (Dispatchers.Main){
-        val loadingData = listOf(Movie("loading"),Movie("loading"),Movie("loading"),Movie("loading"))
+        val loadingData = listOf(Movie(Constants.loading),Movie(Constants.loading)
+            ,Movie(Constants.loading),Movie(Constants.loading))
         _model.value = UiModel.TopRatedData(loadingData)
         _model.value = UiModel.UpcomingData(loadingData)
         _model.value = UiModel.RecommendedData(loadingData)

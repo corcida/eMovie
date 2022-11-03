@@ -4,16 +4,16 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.rappi.emovie.data.database.entities.UpcomingMovie
+import com.rappi.emovie.data.database.entities.UpcomingMovieEntity
 
 @Dao
 interface UpcomingMovieDao {
 
     @Query("SELECT * FROM upcoming")
-    suspend fun getUpcomingMovies() : List<UpcomingMovie>
+    suspend fun getUpcomingMovies() : List<UpcomingMovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(data: List<UpcomingMovie>)
+    suspend fun insertAll(data: List<UpcomingMovieEntity>)
 
     @Query("DELETE FROM upcoming")
     suspend fun deleteAll()
