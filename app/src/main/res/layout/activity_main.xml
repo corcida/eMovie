@@ -40,7 +40,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upcoming"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 tools:itemCount="1"
@@ -54,7 +54,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_rated"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 tools:itemCount="1"
@@ -98,12 +98,11 @@
 
             </LinearLayout>
 
-            <GridView
-                android:id="@+id/movies_grid"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommended"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:numColumns="2"
                 tools:listitem="@layout/node_recommended_movie"
                 />
             

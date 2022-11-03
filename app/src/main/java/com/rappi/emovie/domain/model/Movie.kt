@@ -1,6 +1,7 @@
 package com.rappi.emovie.domain.model
 
 import com.rappi.emovie.data.database.entities.TopRatedMovie
+import com.rappi.emovie.data.database.entities.UpcomingMovie
 
 data class Movie(
     val id: String,
@@ -13,4 +14,7 @@ data class Movie(
 )
 
 fun TopRatedMovie.toDomain() = Movie(id, title, overview,
+    original_language, genre_ids, poster_path, vote_average)
+
+fun UpcomingMovie.toDomain() = Movie(id, title, overview,
     original_language, genre_ids, poster_path, vote_average)

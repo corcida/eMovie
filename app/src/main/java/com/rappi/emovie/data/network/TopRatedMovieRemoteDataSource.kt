@@ -1,4 +1,4 @@
-package com.rappi.emovie.data.model
+package com.rappi.emovie.data.network
 
 import javax.inject.Inject
 

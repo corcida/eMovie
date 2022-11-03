@@ -20,5 +20,7 @@ object RoomModule {
     @Provides
     fun provideTopRatedMovieLocalDataSource(db: AppDatabase) = db.topRatedMovieDao()
 
+    @Provides
+    fun provideUpcomingMovieLocalDataSource(db: AppDatabase) = db.upcomingMovieDao()
 
 }

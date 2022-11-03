@@ -2,7 +2,7 @@ package com.rappi.emovie.data.repository
 
 import com.rappi.emovie.data.database.dao.TopRatedMovieDao
 import com.rappi.emovie.data.database.entities.TopRatedMovie
-import com.rappi.emovie.data.model.TopRatedMovieRemoteDataSource
+import com.rappi.emovie.data.network.TopRatedMovieRemoteDataSource
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.domain.model.toDomain
 import javax.inject.Inject

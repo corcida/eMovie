@@ -2,8 +2,10 @@ package com.rappi.emovie.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.rappi.emovie.data.model.TopRatedMovieRemoteDataSource
-import com.rappi.emovie.data.model.TopRatedMovieService
+import com.rappi.emovie.data.network.TopRatedMovieRemoteDataSource
+import com.rappi.emovie.data.network.TopRatedMovieService
+import com.rappi.emovie.data.network.UpcomingMovieRemoteDataSource
+import com.rappi.emovie.data.network.UpcomingMovieService
 import com.rappi.emovie.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -51,5 +53,13 @@ object NetworkModule {
     @Provides
     fun provideTopRatedRemoteDataSource(service: TopRatedMovieService):
             TopRatedMovieRemoteDataSource = TopRatedMovieRemoteDataSource(service)
+
+    @Provides
+    fun provideUpcomingMovieService(retrofit: Retrofit):
+            UpcomingMovieService = retrofit.create(UpcomingMovieService::class.java)
+
+    @Provides
+    fun provideUpcomingRemoteDataSource(service: UpcomingMovieService):
+            UpcomingMovieRemoteDataSource = UpcomingMovieRemoteDataSource(service)
 
 }

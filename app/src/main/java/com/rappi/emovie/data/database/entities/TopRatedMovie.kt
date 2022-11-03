@@ -2,9 +2,12 @@ package com.rappi.emovie.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.rappi.emovie.data.database.converters.IntListConverter
 import com.rappi.emovie.domain.model.Movie
 
 @Entity(tableName = "top_rated")
+@TypeConverters(IntListConverter::class)
 data class TopRatedMovie(
     @PrimaryKey
     val id: String,

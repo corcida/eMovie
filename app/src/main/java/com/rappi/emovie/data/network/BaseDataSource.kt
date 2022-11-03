@@ -1,4 +1,4 @@
-package com.rappi.emovie.data.model
+package com.rappi.emovie.data.network
 
 import com.rappi.emovie.domain.model.Resource
 import retrofit2.Response
