@@ -1,7 +1,10 @@
 package com.rappi.emovie.ui.views
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rappi.emovie.R
 import com.rappi.emovie.adapter.MoviesAdapter
 import com.rappi.emovie.databinding.ActivityMainBinding
+import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.ui.vm.MainViewModel
 import com.rappi.emovie.ui.vm.MainViewModel.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,9 +67,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAdapters(){
-        topRatedAdapter = MoviesAdapter { viewModel.onMovieItemSelected(it) }
-        upcomingAdapter = MoviesAdapter { viewModel.onMovieItemSelected(it) }
-        recommendedAdapter = MoviesAdapter { viewModel.onMovieItemSelected(it) }
+        topRatedAdapter = MoviesAdapter{ movie: Movie, view: View ->
+            viewModel.onMovieItemSelected(movie, view) }
+        upcomingAdapter = MoviesAdapter{ movie: Movie, view: View ->
+            viewModel.onMovieItemSelected(movie, view) }
+        recommendedAdapter = MoviesAdapter{ movie: Movie, view: View ->
+            viewModel.onMovieItemSelected(movie, view) }
         binding.topRated.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.upcoming.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.recommended.layoutManager = GridLayoutManager(this, 2)
@@ -80,6 +87,13 @@ class MainActivity : AppCompatActivity() {
             is UiModel.RecommendedData -> recommendedAdapter.movies = model.data
             is UiModel.TopRatedData -> topRatedAdapter.movies = model.data
             is UiModel.UpcomingData -> upcomingAdapter.movies = model.data
+            is UiModel.MovieSelected -> {
+                val intent = Intent(this, DetailActivity::class.java)
+                intent.putExtra("data", model.data)
+                val options = ActivityOptions
+                    .makeSceneTransitionAnimation(this, model.view, "photo")
+                startActivity(intent, options.toBundle())
+            }
         }
     }
 

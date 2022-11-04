@@ -1,9 +1,11 @@
 package com.rappi.emovie.ui.vm
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.domain.uc.GetDateFilteredMoviesUseCase
 import com.rappi.emovie.domain.uc.GetEnglishMoviesUseCase
@@ -21,7 +23,8 @@ class MainViewModel @Inject constructor(
     private val getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase,
     private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCase,
     private val getEnglishMoviesUseCase: GetEnglishMoviesUseCase,
-    private val getDateFilteredMoviesUseCase: GetDateFilteredMoviesUseCase
+    private val getDateFilteredMoviesUseCase: GetDateFilteredMoviesUseCase,
+    private val gson: Gson
 ): ViewModel() {
 
     private val _model = MutableLiveData<UiModel>()
@@ -32,6 +35,7 @@ class MainViewModel @Inject constructor(
         class TopRatedData(val data: List<Movie>) : UiModel()
         class UpcomingData(val data: List<Movie>) : UiModel()
         class RecommendedData(val data: List<Movie>) : UiModel()
+        class MovieSelected(val data: String, val view: View) : UiModel()
     }
 
     fun onCreate(){
@@ -85,8 +89,8 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun onMovieItemSelected(movie: Movie){
-
+    fun onMovieItemSelected(movie: Movie, view: View){
+        _model.value = UiModel.MovieSelected(gson.toJson(movie), view)
     }
 
 }

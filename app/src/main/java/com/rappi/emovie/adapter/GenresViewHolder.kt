@@ -9,25 +9,24 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.rappi.emovie.databinding.NodeGenreBinding
 import com.rappi.emovie.databinding.NodeMovieBinding
+import com.rappi.emovie.domain.model.Genre
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.utils.Constants
 
-class MoviesViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class GenresViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-    private val binding = NodeMovieBinding.bind(view)
+    private val binding = NodeGenreBinding.bind(view)
 
-    fun render(movie: Movie, onClickListener : (Movie, View) -> Unit) {
-        if  (movie.id != Constants.loading){
-            val url = Constants.imageUrl + movie.poster_path
-            Glide.with(binding.photo.context).load(url).into(binding.photo)
+    fun render(genre: Genre) {
+        if  (genre.id != Constants.loading){
+            binding.title.text = genre.name
             binding.shimmerViewContainer.stopShimmer()
-            binding.photo.visibility = View.VISIBLE
             binding.shimmerViewContainer.visibility = View.GONE
         }else {
             binding.shimmerViewContainer.startShimmer()
         }
-        itemView.setOnClickListener { onClickListener(movie, binding.photo) }
     }
 
 }

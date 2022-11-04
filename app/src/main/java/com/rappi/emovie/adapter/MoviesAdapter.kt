@@ -2,6 +2,7 @@ package com.rappi.emovie.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rappi.emovie.R
@@ -9,7 +10,7 @@ import com.rappi.emovie.domain.model.Movie
 import kotlin.properties.Delegates
 
 @SuppressLint("NotifyDataSetChanged")
-class MoviesAdapter(private val onClickListener : (Movie) -> Unit) : RecyclerView.Adapter<MoviesViewHolder>() {
+class MoviesAdapter(private val onClickListener : (Movie, View) -> Unit) : RecyclerView.Adapter<MoviesViewHolder>() {
 
     var movies: List<Movie> by Delegates.observable(emptyList()) { _, _, _ -> notifyDataSetChanged() }
 

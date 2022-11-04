@@ -12,6 +12,7 @@
         android:id="@+id/photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:transitionName="photo"
         android:src="@drawable/img_sample_poster"
         android:scaleType="centerCrop" />
 
@@ -27,6 +28,7 @@
         android:layout_width="@dimen/_22sdp"
         android:layout_height="@dimen/_22sdp"
         android:layout_margin="@dimen/_15sdp"
+        android:background="@color/transparent"
         android:src="@drawable/ic_back_arrow" />
 
     <androidx.core.widget.NestedScrollView
@@ -134,6 +136,7 @@
                 android:text="@string/movie_plot" />
 
             <TextView
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
