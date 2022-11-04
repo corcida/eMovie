@@ -12,8 +12,9 @@ import com.rappi.emovie.data.database.entities.TopRatedMovieEntity
 import com.rappi.emovie.data.database.entities.UpcomingMovieEntity
 
 
-@Database(entities = [TopRatedMovieEntity::class, UpcomingMovieEntity::class, GenreEntity::class],
-    version = 4, exportSchema = false)
+@Database(entities = [TopRatedMovieEntity::class, UpcomingMovieEntity::class,
+    GenreEntity::class],
+    version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun topRatedMovieDao(): TopRatedMovieDao

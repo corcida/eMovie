@@ -23,14 +23,6 @@
         android:src="@drawable/gradient_detail_background"
         android:scaleType="centerCrop" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/back"
-        android:layout_width="@dimen/_22sdp"
-        android:layout_height="@dimen/_22sdp"
-        android:layout_margin="@dimen/_15sdp"
-        android:background="@color/transparent"
-        android:src="@drawable/ic_back_arrow" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -51,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:transitionName="description"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="@dimen/detail_title_size"
@@ -137,6 +130,7 @@
 
             <TextView
                 android:id="@+id/description"
+                android:transitionName="description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -148,5 +142,12 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_back_arrow" />
 
 </RelativeLayout>

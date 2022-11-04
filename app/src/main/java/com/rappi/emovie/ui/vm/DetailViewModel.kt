@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.rappi.emovie.domain.model.Genre
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.domain.uc.GetGenresUseCase
+import com.rappi.emovie.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +31,7 @@ class DetailViewModel @Inject constructor(
     }
 
     fun onCreate(movieData: String){
+        setLoadingGenres()
         getMovieData(movieData)
     }
 
@@ -37,6 +39,12 @@ class DetailViewModel @Inject constructor(
         val data: Movie = gson.fromJson(movieData, Movie::class.java)
         _model.value = UiModel.MovieData(data)
         getGenres(data.genre_ids)
+    }
+
+    private fun setLoadingGenres(){
+        val loadingGenres = listOf(Genre(Constants.loading), Genre(Constants.loading),
+            Genre(Constants.loading))
+        _model.value = UiModel.Genres(loadingGenres)
     }
 
     private fun getGenres(ids: List<Int>) = viewModelScope.launch(Dispatchers.IO){

@@ -67,4 +67,12 @@ object NetworkModule {
     fun provideGenreRemoteDataSource(service: GenreService):
             GenreRemoteDataSource = GenreRemoteDataSource(service)
 
+    @Provides
+    fun provideVideoService(retrofit: Retrofit):
+            VideoService = retrofit.create(VideoService::class.java)
+
+    @Provides
+    fun provideVideoRemoteDataSource(service: VideoService):
+            VideoRemoteDataSource = VideoRemoteDataSource(service)
+
 }

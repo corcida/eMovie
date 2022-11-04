@@ -49,10 +49,10 @@
                 tools:text="Drama" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/circle"
                 android:src="@drawable/circle_white"
                 android:layout_width="@dimen/_5sdp"
-                android:layout_height="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"/>
+                android:layout_height="@dimen/_5sdp"/>
 
         </LinearLayout>
 

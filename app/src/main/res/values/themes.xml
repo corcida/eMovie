@@ -15,8 +15,8 @@
     </style>
 
     <style name="AppSplashTheme" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/black</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/img_emovie</item>
+        <item name="windowSplashScreenBackground">@drawable/gradient_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/img_emovie_splash</item>
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/EMovieTheme</item>
 

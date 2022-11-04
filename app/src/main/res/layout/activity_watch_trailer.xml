@@ -8,14 +8,6 @@
     android:background="@color/black"
     tools:context=".ui.views.WatchTrailerActivity">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/back"
-        android:layout_width="@dimen/_22sdp"
-        android:layout_height="@dimen/_22sdp"
-        android:layout_margin="@dimen/_15sdp"
-        android:background="@color/transparent"
-        android:src="@drawable/ic_back_arrow" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -44,6 +36,14 @@
 
                 </com.facebook.shimmer.ShimmerFrameLayout>
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/no_video"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/img_no_video"
+                    android:visibility="gone"/>
+
                 <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                     android:id="@+id/youtube_player_view"
                     android:visibility="gone"
@@ -69,7 +69,6 @@
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/photo"
-                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@color/gray"
@@ -114,5 +113,12 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_back_arrow" />
 
 </RelativeLayout>

@@ -1,12 +1,9 @@
 package com.rappi.emovie.data.repository
 
 import com.rappi.emovie.data.database.dao.GenreDao
-import com.rappi.emovie.data.database.dao.UpcomingMovieDao
 import com.rappi.emovie.data.database.entities.GenreEntity
-import com.rappi.emovie.data.database.entities.UpcomingMovieEntity
 import com.rappi.emovie.data.network.GenreRemoteDataSource
 import com.rappi.emovie.domain.model.Genre
-import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.domain.model.toDomain
 import javax.inject.Inject
 

@@ -20,7 +20,7 @@ class GenresAdapter() : RecyclerView.Adapter<GenresViewHolder>() {
 
     override fun onBindViewHolder(holder: GenresViewHolder, position: Int) {
         val item = genres[position]
-        holder.render(item)
+        holder.render(item, position == genres.lastIndex)
     }
 
     override fun getItemCount(): Int = genres.size
