@@ -40,7 +40,7 @@ class MainViewModel @Inject constructor(
 
     fun onCreate(){
         setLoadingData()
-        getTopRatedMovies()
+        getTopRatedMovies().also { getEnglishMovies() }
         getUpcomingMovies()
     }
 
@@ -52,12 +52,11 @@ class MainViewModel @Inject constructor(
         _model.value = UiModel.RecommendedData(loadingData)
     }
 
-    private fun getTopRatedMovies() = viewModelScope.launch (Dispatchers.IO){
+    fun getTopRatedMovies() = viewModelScope.launch{
         val result = getTopRatedMoviesUseCase()
         withContext(Dispatchers.Main) {
             if (!result.isNullOrEmpty()) {
                 _model.value = UiModel.TopRatedData(result)
-                getEnglishMovies()
             } else {
                 _model.value = UiModel.Error("You currently have no data. " +
                         "Check your internet connection and try again!")
@@ -65,7 +64,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun getUpcomingMovies() = viewModelScope.launch (Dispatchers.IO){
+    fun getUpcomingMovies() = viewModelScope.launch{
         val result = getUpcomingMoviesUseCase()
         withContext(Dispatchers.Main) {
             if (!result.isNullOrEmpty()) {
@@ -74,14 +73,14 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun getEnglishMovies() = viewModelScope.launch(Dispatchers.IO){
+    fun getEnglishMovies() = viewModelScope.launch{
         val result = getEnglishMoviesUseCase()
         withContext(Dispatchers.Main){
             _model.value = UiModel.RecommendedData(result)
         }
     }
 
-    fun getMoviesByDate() = viewModelScope.launch(Dispatchers.IO){
+    fun getMoviesByDate() = viewModelScope.launch{
         val result = getDateFilteredMoviesUseCase()
         withContext(Dispatchers.Main){
             _model.value = UiModel.RecommendedData(result)

@@ -47,7 +47,7 @@ class DetailViewModel @Inject constructor(
         _model.value = UiModel.Genres(loadingGenres)
     }
 
-    private fun getGenres(ids: List<Int>) = viewModelScope.launch(Dispatchers.IO){
+    fun getGenres(ids: List<Int>) = viewModelScope.launch{
         val result = getGenresUseCase(ids)
         withContext(Dispatchers.Main) {
             _model.value = UiModel.Genres(result)

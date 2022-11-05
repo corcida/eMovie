@@ -41,7 +41,7 @@ class WatchTrailerViewModel @Inject constructor(
         getVideos(data.id)
     }
 
-    private fun getVideos(id: Int) = viewModelScope.launch(Dispatchers.IO){
+    fun getVideos(id: Int) = viewModelScope.launch{
         val result = getVideosUseCase(id)
         withContext(Dispatchers.Main) {
             _model.value = UiModel.Loading(false)
