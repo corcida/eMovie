@@ -40,8 +40,8 @@ class MainViewModel @Inject constructor(
 
     fun onCreate(){
         setLoadingData()
-        getTopRatedMovies().also { getEnglishMovies() }
-        getUpcomingMovies()
+        getTopRatedMovies()
+        getUpcomingMovies().invokeOnCompletion { getEnglishMovies() }
     }
 
     private fun setLoadingData()= viewModelScope.launch (Dispatchers.Main){
