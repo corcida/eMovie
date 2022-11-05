@@ -8,7 +8,6 @@ import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,7 @@ import com.rappi.emovie.adapter.MoviesAdapter
 import com.rappi.emovie.databinding.ActivityMainBinding
 import com.rappi.emovie.domain.model.Movie
 import com.rappi.emovie.ui.vm.MainViewModel
-import com.rappi.emovie.ui.vm.MainViewModel.*
+import com.rappi.emovie.ui.vm.MainViewModel.UiModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setViews()

@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.1335" />
         <entry key="app/src/main/res/drawable/ic_emovie.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.1305" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22604166666666667" />
