@@ -6,6 +6,9 @@
         <entry key="../../../Library/Android/sdk/platforms/android-32/data/res/layout/auto_complete_list.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/button_active_state.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/button_black_solid.xml" value="0.1335" />
+        <entry key="app/src/main/res/drawable/button_black_stroke.xml" value="0.1335" />
+        <entry key="app/src/main/res/drawable/button_fragment_active_state.xml" value="0.1335" />
         <entry key="app/src/main/res/drawable/button_gray_solid.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/button_inactive_state.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/button_second_white_solid.xml" value="0.15" />
@@ -15,12 +18,14 @@
         <entry key="app/src/main/res/drawable/circle_white.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/gradient_detail_background.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/gradient_splash_background.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.1335" />
         <entry key="app/src/main/res/drawable/ic_emovie.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.144" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_watch_trailer.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/fragment_no_data.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/node_genre.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/node_movie.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/node_recomended_movie.xml" value="0.22604166666666667" />

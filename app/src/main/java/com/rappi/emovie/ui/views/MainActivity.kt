@@ -3,10 +3,8 @@ package com.rappi.emovie.ui.views
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -29,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var topRatedAdapter : MoviesAdapter
     private lateinit var upcomingAdapter : MoviesAdapter
     private lateinit var recommendedAdapter : MoviesAdapter
+    private lateinit var noDataDialogFragment : NoDataDialogFragment
     private val viewModel : MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,13 +58,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun changeButtonAppearance(active: Boolean, button: Button){
-        val drawable = if (active) R.drawable.button_active_state else R.drawable.button_inactive_state
-        val color = if (active) R.color.button_active_text_state else R.color.button_inactive_text_state
-        button.background = ContextCompat.getDrawable(this, drawable)
-        button.setTextColor(ContextCompat.getColorStateList(this, color))
-    }
-
     private fun setAdapters(){
         topRatedAdapter = MoviesAdapter{ movie: Movie, view: View ->
             viewModel.onMovieItemSelected(movie, view) }
@@ -81,9 +73,25 @@ class MainActivity : AppCompatActivity() {
         binding.recommended.adapter = recommendedAdapter
     }
 
+    private fun changeButtonAppearance(active: Boolean, button: Button){
+        val drawable = if (active) R.drawable.button_active_state else R.drawable.button_inactive_state
+        val color = if (active) R.color.button_active_text_state else R.color.button_inactive_text_state
+        button.background = ContextCompat.getDrawable(this, drawable)
+        button.setTextColor(ContextCompat.getColorStateList(this, color))
+    }
+
+    private fun tryAgain(){
+        noDataDialogFragment.dismiss()
+        viewModel.onCreate()
+    }
+
     private fun viewModelObserver(model : UiModel){
         when (model) {
-            is UiModel.Error -> Toast.makeText(this, model.value, Toast.LENGTH_SHORT).show()
+            is UiModel.Error -> {
+                noDataDialogFragment = NoDataDialogFragment(model.value){ tryAgain() }
+                noDataDialogFragment.isCancelable = false
+                noDataDialogFragment.show(supportFragmentManager, "noDataDialog")
+            }
             is UiModel.RecommendedData -> recommendedAdapter.movies = model.data
             is UiModel.TopRatedData -> topRatedAdapter.movies = model.data
             is UiModel.UpcomingData -> upcomingAdapter.movies = model.data

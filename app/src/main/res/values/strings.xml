@@ -8,4 +8,7 @@
     <string name="watch_trailer">Ver trailer</string>
     <string name="movie_plot">Movie plot</string>
     <string name="movie_plot_example">In a near future, a lonely writer develops an unlikely relationship with an operating system designed to meet his every need.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok">ok</string>
 </resources>

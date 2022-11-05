@@ -59,7 +59,8 @@ class MainViewModel @Inject constructor(
                 _model.value = UiModel.TopRatedData(result)
                 getEnglishMovies()
             } else {
-                _model.value = UiModel.Error("You currently have no data")
+                _model.value = UiModel.Error("You currently have no data. " +
+                        "Check your internet connection and try again!")
             }
         }
     }
@@ -69,8 +70,6 @@ class MainViewModel @Inject constructor(
         withContext(Dispatchers.Main) {
             if (!result.isNullOrEmpty()) {
                 _model.value = UiModel.UpcomingData(result)
-            } else {
-                _model.value = UiModel.Error("You currently have no data")
             }
         }
     }
